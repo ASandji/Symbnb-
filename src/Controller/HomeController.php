@@ -18,6 +18,8 @@ class HomeController extends Controller{
               'age' => 31]
          );
     }
+
+  
 }
 
 ?>
