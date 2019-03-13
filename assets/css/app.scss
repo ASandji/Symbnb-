@@ -1,4 +1,6 @@
-.container{
+@import url('./bootstrap.min.css');
+
+.container, .container-fluid{
     margin-top: 20px;
     
 }
@@ -7,17 +9,17 @@
     padding: 2em;
     background-size: cover;
     background-position: center center;
-}
 
-.ad-title h1, .ad-title p{
-    color: white;
-    text-shadow: 3px 3px 3px rgba(0,0,0,0.5);
-}
+    h1, p {
+        color: white;
+        text-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+    }
 
-.ad-title .btn{
-    margin-top: 2em;
-    font-size: 1.5em;
-    line-height: 1.5em;
+    .btn {
+        margin-top: 2em;
+        font-size: 1.5em;
+        line-height: 1.5em;
+    }
 }
 
 .carousel-caption h5, .carousel-caption p{
@@ -34,22 +36,23 @@
     max-height: 128px;
     border-radius: 50%;
 
+    &.avatar-medium{
+        max-width: 64px;
+        max-height: 64px;
+    }
+
+    &.avatar-mini{
+        max-height: 24px;
+        max-width: 24px;
+    }
+
+    &.avatar-micro{
+        max-width: 20px;
+        max-height: 20px;
+    }
+
 }
 
-.avatar-medium{
-    max-width: 64px;
-    max-height: 64px;
-}
-
-.avatar-mini{
-    max-height: 24px;
-    max-width: 24px;
-}
-
-.avatar-micro{
-    max-width: 20px;
-    max-height: 20px;
-}
 
 .datepicker table tr td.disabled, .datepicker table tr td.disabled:hover{
     color: firebrick!important;
@@ -63,6 +66,6 @@ span.rating i {
   text-decoration: none;
 }
 
-.alert .btn{
-   
+h4.card-title{
+    font-size: 15px!important;
 }

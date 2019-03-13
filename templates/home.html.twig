@@ -6,6 +6,7 @@
 
 
 {% block body %}
+
    <div class="container">
     <div class="jumbotron mt-3">
         <h1 class="display-3">Bienvenue sur SymBnB !</h1>
@@ -21,97 +22,30 @@
   <h2 class="h1 my-5">Nos appartements stars</h2>
 
   <div class="row">
-    <div class="col-md-4">
-       <div class="card bg-light mb3">
-           <div class="card-header text-center">
-             3 chambres, <strong>49&euro; /nuit</strong><br>
-             <small>Pas encore noté</small>
-           </div>
-
-           <img src="http://placehold.it/1000x40" alt="image de l'appartement" style="height:200px ; width:100%; display:block">
-
-           <div class="card-body">
-             <h4 class="card-title">
-                 Appartement superbe!
-              </h4>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore ad soluta, ratione cum dolorum at eum aperiam. Nihil, repudiandae enim?</p>
-           </div>
-
-           <a href="#" class="btn btn-secondary">En savoir plus</a>
-
-       </div>
-    </div>
-    <div class="col-md-4">
-       <div class="card bg-light mb3">
-           <div class="card-header text-center">
-             3 chambres, <strong>49&euro; /nuit</strong><br>
-             <small>Pas encore noté</small>
-           </div>
-
-           <img src="http://placehold.it/1000x40" alt="image de l'appartement" style="height:200px ; width:100%; display:block">
-
-           <div class="card-body">
-             <h4 class="card-title">
-                 Appartement superbe!
-              </h4>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore ad soluta, ratione cum dolorum at eum aperiam. Nihil, repudiandae enim?</p>
-           </div>
-
-           <a href="#" class="btn btn-secondary">En savoir plus</a>
-
-       </div>
-    </div>
-    <div class="col-md-4">
-       <div class="card bg-light mb3">
-           <div class="card-header text-center">
-             3 chambres, <strong>49&euro; /nuit</strong><br>
-             <small>Pas encore noté</small>
-           </div>
-
-           <img src="http://placehold.it/1000x40" alt="image de l'appartement" style="height:200px ; width:100%; display:block">
-
-           <div class="card-body">
-             <h4 class="card-title">
-                 Appartement superbe!
-              </h4>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore ad soluta, ratione cum dolorum at eum aperiam. Nihil, repudiandae enim?</p>
-           </div>
-
-           <a href="#" class="btn btn-secondary">En savoir plus</a>
-
-       </div>
-    </div>
+   {% for data in ads %}
+      {% include 'ad/_ad.html.twig' with {'ad': data.annonce} %}
+   {% endfor %}
   </div>
 
   <h2 class="my-5">Nos propriétaires stars !</h2>
 
   <div class="row">
+  {% for data in users %}
+   {% set user = data.user %}
     <div class="col">
       <div class="card border-secondary mb-3">
          <div class="card-body">
-           <h4 class="card-title">Amanda Sandjivy</h4>
+           <h4 class="card-title">{{user.fullname}}</h4>
            <hr>
            <div class="cartd-text">
-            <img src="http://placehold.it/64x64" alt="avatar d'amanda" class="float-left mr-3">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, illo.</p>
-            <a href="#" class="btn btn-success float-right">En savoir plus</a>
+            <img src="{{user.picture}}" alt="avatar de {{user.fullname}}" class="float-left mr-3">
+            <p>{{user.introduction}}</p>
+            <a href="{{ path('user_show', {'slug': user.slug })}}" class="btn btn-success float-right">En savoir plus</a>
            </div>
          </div>
       </div>
     </div>
-    <div class="col">
-      <div class="card border-secondary mb-3">
-         <div class="card-body">
-           <h4 class="card-title">Amanda Sandjivy</h4>
-           <hr>
-           <div class="cartd-text">
-            <img src="http://placehold.it/64x64" alt="avatar d'amanda" class="float-left mr-3">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, illo.</p>
-            <a href="#" class="btn btn-success float-right">En savoir plus</a>
-           </div>
-         </div>
-      </div>
-    </div>
+   {% endfor %}
   </div>
 
 {% endblock %}
